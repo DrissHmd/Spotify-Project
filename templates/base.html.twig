@@ -1,17 +1,96 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Spotify Project{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="{{ path('app_search') }}">Spotify Project</a>
+        </div>
+        <div class="navbar__search">
+            <form action="{{ path('app_search') }}" method="get">
+                <input type="text" id="search" name="query" class="input" placeholder="Search music, artists...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="navbar__links">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </nav>
+</header>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<main>
+    {% block body %}{% endblock %}
+</main>
+</body>
+<style>
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #121212;
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px 20px;
+        color: #fff;
+        border-radius: 10px;
+    }
+
+    .navbar__logo a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.5rem;
+    }
+
+    .navbar__search {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar__search form {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar__search input {
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: none;
+        width: 300px;
+    }
+
+    .navbar__search button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #1DB954;
+        color: #fff;
+    }
+
+    .navbar__links a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 1rem;
+    }
+
+    .navbar__links a:hover {
+        text-decoration: underline;
+    }
+
+</style>
 </html>

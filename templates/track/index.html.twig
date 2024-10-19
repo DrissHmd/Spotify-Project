@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ track.name }} - {{ track.artist }}{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>
+            Spotify Project
+        </h1>
+    </header>
+
+    <main>
+        <div class="track-info">
+            <div class="track-info__cover">
+                <img src="{{ track.pictureLink }}" alt="{{ track.name }} cover">
+            </div>
+            <div class="track-info__details">
+                <h2>{{ track.name }}</h2>
+                <p><strong>Artist:</strong> {{ track.artist }}</p>
+                <p><strong>Type:</strong> {{ track.type }}</p>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        .track-info {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .track-info__cover img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .track-info__details {
+            margin-left: 20px;
+        }
+
+        .track-info__details h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .track-info__details p {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+    </style>
+
+{% endblock %}
