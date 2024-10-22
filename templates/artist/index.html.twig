@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ artist.name }}{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8d1e3; /* Couleur de fond rose clair */
+            color: #333;
+        }
+
+        .title {
+            background-color: #d5006d; /* Couleur de fond inspirée de Barbie */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-family: 'Fredoka One', cursive; /* Police ludique */
+            font-size: 3rem;
+        }
+
+        .card {
+            margin: 0 auto;
+            max-width: 800px; /* Limite la largeur pour un meilleur affichage */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: white; /* Fond de la carte */
+            border: 2px solid #f7a3b8; /* Bordure rose */
+        }
+
+        .artist-info__cover img {
+            width: 100%; /* Image s'ajuste à la carte */
+            height: auto;
+            border-radius: 15px 15px 0 0; /* Arrondir le haut de la carte */
+        }
+
+        .artist-info__details {
+            padding: 20px;
+        }
+
+        .artist-info__details h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #d5006d; /* Couleur de texte inspirée de Barbie */
+            font-family: 'Fredoka One', cursive; /* Police ludique pour le nom de l'artiste */
+        }
+
+        .artist-info__details p {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #666; /* Couleur de texte secondaire */
+        }
+
+        .btn-custom {
+            background-color: #d5006d; /* Couleur de bouton inspirée de Barbie */
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #a40050; /* Couleur plus sombre au survol */
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div>
+    <div class="title">
+        <h1>
+            Spotify Project
+        </h1>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="artist-info__cover">
+                <img src="{{ artist.picture }}" alt="{{ artist.name }} cover">
+            </div>
+            <div class="artist-info__details">
+                <h2>{{ artist.name }}</h2>
+                <p><strong>Genres:</strong> {{ artist.genres | join(', ') }}</p>
+                <p><strong>Followers:</strong> {{ artist.followers }}</p>
+                <a href="#" class="btn btn-custom">Follow</a>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
