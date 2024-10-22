@@ -3,94 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Spotify Project{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% block stylesheets %}
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            * {
+                text-decoration: none;
+            }
+
+            body {
+                font-family: 'Comic Sans MS', cursive, sans-serif; /* Police ludique */
+                background-color: #f8d1e1; /* Couleur de fond pastel */
+                color: #333; /* Couleur du texte générale */
+                margin: 0;
+                padding: 20px;
+            }
+
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #d5006d; /* Couleur rose Barbie */
+                padding: 10px 15px; /* Réduction du rembourrage */
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .navbar__logo a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 1.5rem; /* Réduction de la taille de la police */
+                font-weight: bold;
+            }
+
+            .navbar__search {
+                flex: 1;
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .navbar__search form {
+                display: flex;
+                align-items: center;
+            }
+
+            .navbar__search input {
+                padding: 8px; /* Réduction du rembourrage */
+                border-radius: 25px; /* Coins arrondis */
+                border: none;
+                width: 250px; /* Réduction de la largeur */
+                font-size: 0.9rem; /* Réduction de la taille de la police */
+                background-color: #fff; /* Fond blanc pour l'input */
+                color: #333; /* Couleur du texte de l'input */
+            }
+
+            .navbar__search button {
+                margin-left: 5px; /* Réduction de la marge */
+                padding: 8px 12px; /* Réduction du rembourrage */
+                border-radius: 25px; /* Coins arrondis */
+                border: none;
+                cursor: pointer;
+                background-color: #ff69b4; /* Couleur rose clair pour le bouton */
+                color: #fff;
+                font-weight: bold;
+                font-size: 0.9rem; /* Réduction de la taille de la police */
+            }
+
+            .navbar__search button:hover {
+                background-color: #ff85c0; /* Légère variation de couleur au survol */
+            }
+
+            .navbar__links a {
+                color: #fff;
+                text-decoration: none;
+                margin-left: 15px; /* Réduction de la marge */
+                font-size: 0.9rem; /* Réduction de la taille de la police */
+                font-weight: bold;
+            }
+
+            .navbar__links a:hover {
+                text-decoration: underline;
+                color: #ffb3e6; /* Couleur pastel pour l'effet au survol */
+            }
+
+            .favorite-button {
+                margin-left: 5px; /* Réduction de la marge */
+                padding: 8px 12px; /* Réduction du rembourrage */
+                border-radius: 25px; /* Coins arrondis */
+                border: none;
+                cursor: pointer;
+                background-color: #ff69b4; /* Couleur rose clair pour le bouton */
+                color: #fff;
+                font-weight: bold;
+                font-size: 0.9rem; /* Réduction de la taille de la police */
+            }
+        </style>
+    {% endblock %}
 </head>
 <body>
 <header>
-    <nav class="navbar">
-        <div class="navbar__logo">
-            <a href="{{ path('app_search') }}">Spotify Project</a>
-        </div>
-        <div class="navbar__search">
-            <form action="{{ path('app_search') }}" method="get">
-                <input type="text" id="search" name="query" class="input" placeholder="Search music, artists...">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-        <div class="navbar__links">
-            <a href="#">Login</a>
-            <a href="#">Sign Up</a>
-        </div>
-    </nav>
+    {% if app.request.attributes.get('_route') not in ['app_user_login', 'app_user_register'] %}
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="{{ path('app_search_track') }}">Spotify Project</a>
+            </div>
+            <div class="navbar__search">
+                <form action="{{ path('app_search_track') }}" method="get">
+                    <input type="text" id="search" name="query" class="input" placeholder="Rechercher de la musique">
+                    <button type="submit">Rechercher</button>
+                    <a href="{{ path('app_favorite') }}" class="favorite-button">Favoris tracks</a>
+                </form>
+                <form action="{{ path('app_search_artist') }}" method="get">
+                    <input type="text" id="search" name="query" class="input" placeholder="Rechercher des artistes...">
+                    <button type="submit">Rechercher</button>
+                    <a href="{{ path('app_favorite_artist') }}" class="favorite-button">Favoris artists</a>
+                </form>
+            </div>
+            <div class="navbar__links">
+                {% if app.user %}
+                    <a href="{{ path('app_user_logout') }}">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_user_login') }}">Connexion</a>
+                {% endif %}
+            </div>
+        </nav>
+    {% endif %}
 </header>
 
 <main>
     {% block body %}{% endblock %}
 </main>
 </body>
-<style>
-    body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-        background-color: #121212;
-        color: #fff;
-        margin: 0;
-        padding: 20px;
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #333;
-        padding: 10px 20px;
-        color: #fff;
-        border-radius: 10px;
-    }
-
-    .navbar__logo a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1.5rem;
-    }
-
-    .navbar__search {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-    .navbar__search form {
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar__search input {
-        padding: 5px 10px;
-        border-radius: 20px;
-        border: none;
-        width: 300px;
-    }
-
-    .navbar__search button {
-        margin-left: 10px;
-        padding: 5px 10px;
-        border-radius: 20px;
-        border: none;
-        cursor: pointer;
-        background-color: #1DB954;
-        color: #fff;
-    }
-
-    .navbar__links a {
-        color: #fff;
-        text-decoration: none;
-        margin-left: 20px;
-        font-size: 1rem;
-    }
-
-    .navbar__links a:hover {
-        text-decoration: underline;
-    }
-
-</style>
 </html>

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register - SongController{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #FFB6C1, #FF69B4);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .example-wrapper {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #FF69B4;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        .form-control {
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .form-control::placeholder {
+            color: #a1a1a1;
+        }
+        .btn-primary {
+            border-radius: 10px;
+            background-color: #FF69B4;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #FF1493;
+        }
+        .text-center {
+            margin-top: 20px;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Register</h1>
+        {{ form_start(form, {'attr': {'class': 'form'}}) }}
+        <div class="form-group">
+            {{ form_row(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

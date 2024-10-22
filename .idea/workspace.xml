@@ -5,23 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9a737ca-0e8f-4383-9d1f-0fcd2e0f2cc2" name="Changes" comment="Commit de la dernière séance">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/TrackController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Track.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/AuthSpotifyService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/results.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/track/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/track/search.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/artist/favorite.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/resultsartist.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search/resultstrack.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/track/favorite.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/login.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/register.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TrackController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TrackController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Track.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search/index.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search/results.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/track/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/track/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/track/search.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,6 +200,10 @@
       <recent name="C:\Users\driss\OneDrive\Documents\~Cours\3eme année 2.0\Symfony\Spotify Project" />
       <recent name="C:\Users\driss\OneDrive\Documents\~Cours\3eme année 2.0\Symfony\Spotify Project\src\Service" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\driss\OneDrive\Documents\~Cours\3eme année 2.0\Symfony\Spotify Project\templates\artist" />
+      <recent name="C:\Users\driss\OneDrive\Documents\~Cours\3eme année 2.0\Symfony\Spotify Project\templates\user" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -227,8 +232,20 @@
       <workItem from="1728888202130" duration="2060000" />
       <workItem from="1728906936267" duration="8193000" />
       <workItem from="1729065861669" duration="998000" />
-      <workItem from="1729334388977" duration="333000" />
+      <workItem from="1729334388977" duration="1641000" />
+      <workItem from="1729456242379" duration="3019000" />
+      <workItem from="1729528192329" duration="17711000" />
+      <workItem from="1729578651052" duration="11754000" />
     </task>
+    <task id="LOCAL-00001" summary="Commit de la dernière séance">
+      <option name="closed" value="true" />
+      <created>1729335484932</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729335484932</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Favorites List{% endblock %}
+
+{% block body %}
+    <h1>Vos Favoris</h1>
+    <div class="favorite-list">
+        {% if favorites is not empty %}
+            <ul>
+                {% for favorite in favorites %}
+                    <li>
+                        <div class="favorite-info">
+                            <div class="favorite-info__cover">
+                                <img src="{{ favorite.picture }}" alt="{{ favorite.trackName }} cover">
+                            </div>
+                            <div class="favorite-info__details">
+                                <h2>{{ favorite.trackName }}</h2>
+                                <p><strong>Artist:</strong> {{ favorite.artistName }}</p>
+                                <p><strong>Type:</strong> {{ favorite.type }}</p>
+                                <a href="{{ path('track_id', { id: favorite.trackId }) }}">Voir le détail</a>
+                                <form method="get" action="{{ path('app_favorite_remove', { id: favorite.id }) }}" style="display:inline;">
+                                    <button type="submit">Supprimer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Vous n'avez pas encore ajouté de favoris.</p>
+        {% endif %}
+    </div>
+
+    <style>
+        button{
+            margin-left: 10px;
+            padding: 10px 15px;
+            border-radius: 25px; /* Coins arrondis */
+            border: none;
+            cursor: pointer;
+            background-color: #ff69b4; /* Couleur rose clair pour le bouton */
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .favorite-info {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .favorite-info__cover img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .favorite-info__details {
+            margin-left: 20px;
+        }
+
+        .favorite-info__details h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .favorite-info__details p {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+    </style>
+{% endblock %}

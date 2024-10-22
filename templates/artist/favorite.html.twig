@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Artistes Favoris{% endblock %}
+
+{% block body %}
+    <h1>Vos Artistes Favoris</h1>
+    <div class="favorite-artist-list">
+        {% if favorites is not empty %}
+            <ul>
+                {% for favorite in favorites %}
+                    <li>
+                        <div class="favorite-artist-info">
+                            <div class="favorite-artist-info__picture">
+                                <img src="{{ favorite.picture }}" alt="{{ favorite.name }} picture">
+                            </div>
+                            <div class="favorite-artist-info__details">
+                                <h2>{{ favorite.name }}</h2>
+                                <p><strong>Genres:</strong> {{ favorite.genres|join(', ') }}</p>
+                                <p><strong>Followers:</strong> {{ favorite.followers }}</p>
+                                <a href="{{ path('artist_id', { id: favorite.artistId }) }}">Voir le détail</a>
+                                <form method="get" action="{{ path('app_favorite_artist_remove', { id: favorite.artistId }) }}" style="display:inline;">
+                                    <button type="submit">Supprimer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Vous n'avez pas encore ajouté d'artistes favoris.</p>
+        {% endif %}
+    </div>
+
+    <style>
+        button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            border-radius: 25px; /* Coins arrondis */
+            border: none;
+            cursor: pointer;
+            background-color: #ff69b4; /* Couleur rose clair pour le bouton */
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .favorite-artist-info {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .favorite-artist-info__picture img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .favorite-artist-info__details {
+            margin-left: 20px;
+        }
+
+        .favorite-artist-info__details h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .favorite-artist-info__details p {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+    </style>
+{% endblock %}
